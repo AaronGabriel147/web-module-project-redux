@@ -1,11 +1,13 @@
 import React from 'react';
-
 import MovieListItem from './MovieListItem';
 import MovieFooter from './MovieFooter';
 
-const MovieList = (props)=> {
-    const movies = [];
+import { connect } from 'react-redux';
+import { deleteMovie } from '../actions/movieActions'
 
+
+const MovieList = (props)=> {
+// console.log(props.state.movies);
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -21,14 +23,23 @@ const MovieList = (props)=> {
 
                 <tbody>
                     {
-                        movies.map(movie=><MovieListItem key={movie.id} movie={movie}/>)
+                        props.state.movies.map(movie => <MovieListItem key={movie.id} movie={movie}/>)
                     }
                 </tbody>
             </table>
             
-            <MovieFooter totalMovies={movies.length}/>
+            {/* <MovieFooter totalMovies={props.length}/> */}
         </div>
     );
 }
 
-export default MovieList;
+// We snag any data we want from the reducer:
+const mapStateToProps = (state) => {
+    // console.log('mapStateToProps, state', state.movies[0].title)
+    return {
+        state: state
+    }
+}
+
+
+export default connect(mapStateToProps, { deleteMovie }) (MovieList);

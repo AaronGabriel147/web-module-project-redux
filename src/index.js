@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider} from 'react-redux';
-
-import reducer from './reducers';
-
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
+import MovieList from './components/MovieList';
+
+// Redux imports
+import { createStore } from 'redux';
+import { Provider} from 'react-redux';
+
+// Reducer import
+import reducer from './reducers';
+
+// The store
+const store = createStore(reducer);
+
 
 ReactDOM.render(
-  <Router>
-      <App />
-  </Router>,
+  <Provider store={store}>
+    <Router>
+        <App />
+        <MovieList />
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );

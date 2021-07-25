@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+import { deleteMovie } from '../actions/movieActions';
+
 const MovieHeader = (props) => {
-    const appTitle = "";
+    // console.log(props);
+    const appTitle = props.state.appTitle
     const displayFavorites = true;
     
+    // console.log(appTitle);
     return(<div className="table-title">
         <div className="row">
         <div className="col-sm-6">
@@ -19,4 +24,10 @@ const MovieHeader = (props) => {
     </div>);
 }
 
-export default MovieHeader;
+const mapStateToProps = (state) => {
+    return {
+        state: state
+    }
+}
+
+export default connect(mapStateToProps, {  }) (MovieHeader);
