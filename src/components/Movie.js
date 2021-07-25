@@ -5,21 +5,19 @@ import { connect } from 'react-redux';
 import { deleteMovie } from '../actions/movieActions';
 
 
-// Find the HTML element that should trigger a deletion in the movie component.
-// Create and connect the necessary event handlers to call deleteMovie on the current movie's id. 
-// After setting the state, redirect the user using the push('/movies') command.
-
 
 
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
+    console.log('Movie.js: props', props);
+    const movie = props.movies.find(movie => movie.id === Number(id)); // Number means you are only looking for a number. 
 
-    // console.log('Movie.js: props', props);
+    const deleteHandler = (id) => {
+        props.deleteMovie(id)
+        push("/movies")
+    }
 
-    // const movies = [];
-    const movie = props.state.movies.find(movie => movie.id === Number(id));
-    
     return(<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -28,7 +26,6 @@ const Movie = (props) => {
                 </div>
                 <div className="modal-body">
                     <div className="flexContainer">
-
                         <section className="movie-details">
                             <div>
                                 <label>Title: <strong>{movie.title}</strong></label>
@@ -47,10 +44,9 @@ const Movie = (props) => {
                                 <p><strong>{movie.description}</strong></p>
                             </div>
                         </section>
-                        {/* Below is where we delete... But how....? */}
                         <section>
                             <span className="m-2 btn btn-dark">Favorite</span>
-                            <span className="delete"><input type="button" className="m-2 btn btn-danger" value="Delete"/></span>
+                            <span className="delete"><input onClick={() => deleteHandler(movie.id)} type="button" className="m-2 btn btn-danger" value="Delete"/></span>
                         </section>
                     </div>
                 </div>
@@ -61,7 +57,7 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        state: state
+        movies: state.movies
     }
 }
 
