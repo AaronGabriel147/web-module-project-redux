@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 
 import { Link, useHistory } from 'react-router-dom';
 
+
+
 const AddMovieForm = (props) => {
     const { push } = useHistory();
-
+    
     const [movie, setMovie] = useState({
         title: "",
         director: "",
@@ -14,6 +16,9 @@ const AddMovieForm = (props) => {
         metascore: 0,
         description:""
     });
+    
+    // console.log(" AddMovieForm ~ movie", movie) // all the keys and empty strings as seen above. Must click 'add new movie' to trigger .log
+
 
     const handleChange = (e) => {
         setMovie({

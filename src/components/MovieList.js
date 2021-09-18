@@ -7,7 +7,7 @@ import { deleteMovie } from '../actions/movieActions'
 
 
 const MovieList = (props)=> {
-// console.log(props.state.movies);
+// console.log(props.state.movies); // all data is in props... I don't think it should be/
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -35,7 +35,7 @@ const MovieList = (props)=> {
 
 // We snag any data we want from the reducer:
 const mapStateToProps = (state) => {
-    // console.log('mapStateToProps, state', state.movies[0].title)
+    // console.log('mapStateToProps, state', state.movies[0].title) // 1 movie.
     return {
         state: state
     }

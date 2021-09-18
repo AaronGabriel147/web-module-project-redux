@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { deleteMovie } from '../actions/movieActions';
+// import { deleteMovie } from '../actions/movieActions';
 
 const MovieHeader = (props) => {
-    // console.log(props);
+// console.log("MovieHeader.js ~ props", props) // appTitle: "IMDB Movie Database"
     const appTitle = props.state.appTitle
     const displayFavorites = true;
     
-    // console.log(appTitle);
+    // console.log(appTitle); = // IMDB Movie Database
     return(<div className="table-title">
         <div className="row">
         <div className="col-sm-6">
