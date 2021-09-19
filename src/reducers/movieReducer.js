@@ -9,13 +9,7 @@ const initialState = {
          // Sets state to initial state (I think)
 const reducer = (state = initialState, action) => {
 
-
-
-console.log("🚀 ~ file: movieReducer.js ~ line 11 ~ reducer ~ state", state)
-
-
-
-    
+// console.log("🚀 ~ file: movieReducer.js ~ line 11 ~ reducer ~ state", state)
 
     switch(action.type) {
 
@@ -33,8 +27,7 @@ console.log("🚀 ~ file: movieReducer.js ~ line 11 ~ reducer ~ state", state)
             default:
                 return state;
             }
-
-        }
+}
    
 export default reducer;
 

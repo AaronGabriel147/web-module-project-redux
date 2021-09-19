@@ -8,8 +8,9 @@ import { deleteMovie } from '../actions/movieActions';
 const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory(); // ?
+    const movies = props.movies
     console.log('Movie.js: props', props);
-    const movie = props.movies.find(movie => movie.id === Number(id)); // Number means you are only looking for a number. 
+    const movie = movies.find(movie => movie.id === Number(id)); // Number means you are only looking for a number. 
 
     const deleteHandler = (id) => {
         props.deleteMovie(id)
@@ -55,7 +56,7 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        movies: state.movies
+        movies: state.movieReducer.movies
     }
 }
 

@@ -1,12 +1,8 @@
-
-
 import React, { useState } from 'react';
 import { addMovie } from './../actions/movieActions';
 import { connect } from 'react-redux';
-
 import { Link, useHistory } from 'react-router-dom';
 
-import movies from '../data';
 
 const AddMovieForm = (props) => {
     const { push } = useHistory();

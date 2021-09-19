@@ -7,7 +7,7 @@ import { deleteMovie } from '../actions/movieActions'
 
 
 const MovieList = (props)=> {
-// console.log(props.state.movies); // all data is in props... I don't think it should be/
+console.log('MovieList', props.state.movieReducer.movies); 
     return (
         <div className="col">
             <table className="table table-striped table-hover">
@@ -17,13 +17,12 @@ const MovieList = (props)=> {
                     <th>Director</th>
                     <th>Genre</th>
                     <th>Metascore</th>
-                    <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
                     {
-                        props.state.movies.map(movie => <MovieListItem key={movie.id} movie={movie}/>)
+                        props.state.movieReducer.movies.map(movie => <MovieListItem key={movie.id} movie={movie}/>)
                     }
                 </tbody>
             </table>
@@ -33,7 +32,6 @@ const MovieList = (props)=> {
     );
 }
 
-// We snag any data we want from the reducer:
 const mapStateToProps = (state) => {
     // console.log('mapStateToProps, state', state.movies[0].title) // 1 movie.
     return {
