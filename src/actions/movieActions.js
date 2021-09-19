@@ -10,8 +10,9 @@ export const deleteMovie = (id) => {
     }
 }
 
-export const addMovie = () => {
+export const addMovie = (movie) => {
     return {
-        type: ADD_MOVIE
+        type: ADD_MOVIE,
+        payload: movie
     }
 }

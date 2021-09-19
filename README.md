@@ -49,7 +49,7 @@ Replace our static movie variable with that prop.
 #### Connecting the Delete and Add Movie actions
 > *Looks like you got a good handle on mapping stateToProps! Now let's connect some actions.*
 
-* [xx noted] Note that the deleteMovie reducer case and action creator are already available.
+* [xx] Note that the deleteMovie reducer case and action creator are already available.
 
 * [xx] **We can delete movies within the Movie Component.** Connect the deleteMovie action through the connect method.
 // This is done so via mapStateToProps and imports.
@@ -60,15 +60,15 @@ Replace our static movie variable with that prop.
 * [xx] Add in an ADD_MOVIE case to movieReducer.js.
 
 
-* [ ] Make this new case return a version of state with new movie values passed in through the payload.
+* [xx] Make this new case return a version of state with new movie values passed in through the payload.
 
-* [ ] Create an action creator for addMovie in movieActions.js.
+* [xx] Create an action creator for addMovie in movieActions.js.
 
-* [xx - it is add movie form] Find the component that triggers the adding of a movie and connect the addMovie action.
+* [xx] - [it is add movie form] Find the component that triggers the adding of a movie and connect the addMovie action.
 
 * [xx] Create and connect the necessary event handlers to call addMovie.
 
-* [ ] Add in push('/movies/) after calling your action to trigger a redirect.
+* [xx] Add in push('/movies/) after calling your action to trigger a redirect.
 
 
 #### Build out the favorites reducer
